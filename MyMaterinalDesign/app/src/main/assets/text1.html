@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>第一个页面</title>
+</head>
+
+<body>
+
+<h1>这是标题</h1>
+
+<p id="time"> 这里显示系统的时间</p>
+
+<p id="content"> 这里显示点击的内容</p>
+
+<p id="android"> 这里显示从andorid获取到的内容</p>
+
+<p id="sixin"> 这里显示私信</p>
+
+
+<button type="button" onclick="showdatatime()"> 点击显示时间</button>
+<button type="button" onclick="showcontent()"> 点击显示内容</button>
+<button type="button" onclick="getandroid()">点击显示android传递的数据</button>
+<button type="button" onclick="showclear()">点击初始化上述内容</button>
+<button type="button" onclick="toprivate()">私信</button>
+<button type="button" onclick="collection()">收藏</button>
+
+<script>
+function showdatatime(){
+	document.getElementById("time").innerHTML=Date();
+	}
+function showcontent(){
+	document.getElementById("content").innerHTML='你好';
+	showdatatime();
+	}
+function getandroid(){
+    alert(binggou.getContent());
+	document.getElementById("android").innerHTML=binggou.getContent();
+	} 
+function showclear(){
+	document.getElementById("time").innerHTML='这里显示系统的时间';
+	document.getElementById("content").innerHTML='这里显示点击的内容';
+	document.getElementById('android').innerHTML='这里显示从andorid获取到的内容';
+	}
+
+function toprivate(){
+    binggou.toPrivate();
+	}
+function collection(){
+    binggou.collection();
+	}
+function recommendcollection(){
+    binggou.recommendcollection('项目id');
+	}
+
+function recommendproject(){
+    binggou.recommendproject('项目id');
+	}
+window.onload=function(){
+	document.getElementById("android").innerHTML=binggou.getContent();
+	}
+
+window.onload=function(){
+	binggou.setMycontent('这个是从h5传递到android的数据');
+	}
+
+</script>
+</body>
+</html>

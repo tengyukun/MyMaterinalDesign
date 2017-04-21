@@ -1,0 +1,477 @@
+
+
+
+
+
+
+<script>
+	//定义全局域名路径,请不要在全工程的其它文件中编写这二个值的字面值
+	var pathurl = "http://p4.binggou.com";
+	var systemPicUrl = "http://s4.binggou.com";
+</script>  
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title>云并购项目详情页</title>
+
+<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="applicable-device" content="mobile">
+
+<meta name="format-detection" content="telephone=no">
+
+<!--header-->
+
+<link rel="apple-touch-icon" href="http://s4.binggou.com/mobile/images/logo114.png" />
+
+<link type="text/css" href="css/style.css" rel="stylesheet"/>
+
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+
+<script type="text/javascript" src="js/detail.js"></script> 
+
+<script type="text/javascript" src="js/common.js"></script> 
+
+
+
+<script type="text/javascript" src="js/project.js" charset="utf-8"></script> 
+
+<!--header-->
+
+<!--项目详情-->
+
+<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+
+<script type="text/javascript" src="js/slide.js"></script>
+
+
+
+<!--详情页滑动-->
+
+<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>       
+
+<script type="text/javascript" src="js/flickity-docs.min.js"></script>   
+
+<!--项目详情scroll-->
+
+<script type="text/javascript" src="js/propage_u.js"></script>
+
+
+
+  
+
+</head>
+
+<body class="boback">
+
+<img alt="" src="images/mobile_logo.png" style="display:none">
+
+<input type="hidden" id="logoId" value="1">
+
+<section class="heash"><a href="/mobileuser/goNavigationPage"></a><form action="" method="" class="layer">
+
+<a href="/mobileproject/goSearchPage">从这里开始探索</a>
+
+</form></section>  
+
+  
+
+<!-- <div class="bainfo"><a>基本信息</a><span></span>
+
+	<article class="hidlay disn"><a href="javascript:void(0)" class="curr" title="1">基本信息</a><a href="javascript:void(0)" title="2">财务数据</a><a href="javascript:void(0)" title="3">股权结构</a><a href="javascript:void(0)" title="4">信息披露</a><a href="javascript:void(0)"  title="5">项目图片</a><a  href="javascript:void(0)" title="6">交易流程</a></article>
+
+
+
+</div> -->
+
+	<div id="detailStaticFile"></div>
+
+	 
+
+    <article class="indis sourc new_sou">  
+
+	    <div class="telask"></div>    
+
+		<article class="foona teask proje_01"><a href="tel:15624992447" class="telin">电话咨询</a><a data_c="0" class=agree onClick="addOrCancelCollection(83,this)"></a></article>
+
+	</article> 
+
+	    
+
+<div class="thre"></div>
+
+<h2 class="tit">推荐项目</h2>
+
+<ul class="aproj js-flickity" data-flickity-options='{ "wrapAround": true }'>
+
+	
+
+		<li class="gallery-cell"><a href="/mobileproject/goProjectDetail?projectId=63"><img src="project/c_2017_1_1c7f724c3b4344699a336939f7b4ac13.jpeg" alt=""></a>
+
+	        <article class="outma">
+
+	            <h3><a href="/mobileproject/goProjectDetail?projectId=63">北京呀咪呀咪营养快餐有限公司4.374%股权</a></h3><p>54353245</p>
+
+	            <a href="/mobileproject/goProjectDetail?projectId=63">
+
+		            <div class="healt"><ol><li>住宿餐饮及旅游业</li><li>440.25万</li></ol>
+
+		                <div class="marks"><span sumdays="28"><em remaindays="1"></em></span><b>剩余1天</b></div>
+
+		            </div>
+
+	            </a>
+
+	        </article>
+
+	        <mark  onclick="addOrCancelCollection(63,this)" data_c="0" ></mark>
+
+	    </li>
+
+	
+
+		<li class="gallery-cell"><a href="/mobileproject/goProjectDetail?projectId=80"><img src="" alt=""></a>
+
+	        <article class="outma">
+
+	            <h3><a href="/mobileproject/goProjectDetail?projectId=80">宁波太航汽车电子有限公司45%股权</a></h3><p></p>
+
+	            <a href="/mobileproject/goProjectDetail?projectId=80">
+
+		            <div class="healt"><ol><li>煤炭工业</li><li>30.01万</li></ol>
+
+		                <div class="marks"><span sumdays="61"><em remaindays="42"></em></span><b>剩余42天</b></div>
+
+		            </div>
+
+	            </a>
+
+	        </article>
+
+	        <mark  onclick="addOrCancelCollection(80,this)" data_c="0" ></mark>
+
+	    </li>
+
+	
+
+		<li class="gallery-cell"><a href="/mobileproject/goProjectDetail?projectId=109"><img src="" alt=""></a>
+
+	        <article class="outma">
+
+	            <h3><a href="/mobileproject/goProjectDetail?projectId=109">天津力神电池股份有限公司3.4%股权（4250万股）</a></h3><p></p>
+
+	            <a href="/mobileproject/goProjectDetail?projectId=109">
+
+		            <div class="healt"><ol><li>煤炭工业</li><li>32172.5万</li></ol>
+
+		                <div class="marks"><span sumdays="28"><em remaindays="10"></em></span><b>剩余10天</b></div>
+
+		            </div>
+
+	            </a>
+
+	        </article>
+
+	        <mark  onclick="addOrCancelCollection(109,this)" data_c="0" ></mark>
+
+	    </li>
+
+	
+
+		<li class="gallery-cell"><a href="/mobileproject/goProjectDetail?projectId=86"><img src="" alt=""></a>
+
+	        <article class="outma">
+
+	            <h3><a href="/mobileproject/goProjectDetail?projectId=86">西安康桥置业有限公司90%股权</a></h3><p>特价货</p>
+
+	            <a href="/mobileproject/goProjectDetail?projectId=86">
+
+		            <div class="healt"><ol><li>石油石化工业</li><li>862万</li></ol>
+
+		                <div class="marks"><span sumdays="28"><em remaindays="0"></em></span><b>剩余0天</b></div>
+
+		            </div>
+
+	            </a>
+
+	        </article>
+
+	        <mark  onclick="addOrCancelCollection(86,this)" data_c="0" ></mark>
+
+	    </li>
+
+	
+
+	
+
+</ul>
+
+<input type="hidden" value="83" id="detail_projectId"/>
+
+<input type="hidden" value="上海燃料电池汽车动力系统有限公司44.63%股权" id="detail_projectName"/>
+
+<input type="hidden" value="425425阿娜哈哈哈" id="detail_point"/>
+
+<input type="hidden" value="http://p4.binggou.com/cover/project/s_2017_1_c548066e0f044ccd8a79ca97404cb82c.jpeg" id="detail_projectCover"/>
+
+<!-- 提示  隐藏 disn  显示shay -->
+
+<article class="message disn"><p>提示信息</p></article>
+
+<!--footer-->
+
+
+
+<footer><img src="images/foolo.png" alt="">
+
+<p>
+
+	北京并购网络科技有限公司
+
+	<br/>© 2015-2016 Binggou net Co., Ltd.All Rights Reserved.
+
+	<br/><a href="http://www.miibeian.gov.cn" style="color:#777;" target="_blank">京ICP备15064930号-2</a>
+
+</p>
+
+</footer>
+
+<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+
+<script type="text/javascript" src="js/share.js"></script>
+
+<!--底部打电话-->
+
+<div class="balc"></div>
+
+<article class="foona fo_in proje_01h"><a href="tel:15624992447" class="telin">电话咨询</a><a data_c="0" class=agree onClick="addOrCancelCollection(83,this)"></a></article>
+
+<!--在微信分享之后提示加载 shaload -->
+
+<article class="shaload disn"><a href="http://www.baidu.com/">下载云并购APP，探索更多项目。</a><span></span></article>
+
+
+
+<script type="text/javascript">
+
+$(function(){
+
+	if(getQueryString('from')=='weixin'){
+
+		$('.shaload').removeClass('disn');	
+
+	}
+
+	
+
+	$("#detailStaticFile").load(systemPicUrl + '/static_html/mobile/mobile_project_83.html  .public_page',function(){
+
+		
+
+				//项目详情——财务详情
+
+				$('.report a').click(function(){
+
+					var ind=$(this).index();
+
+					
+
+					$('.shinf').find('table').css('width','100%');
+
+					$('.report a').removeClass('curr');
+
+					$('.report').find('a').eq(ind).addClass('curr');
+
+					$('.shinf .lay_01').removeClass('shay').addClass('disn');
+
+					$('.shinf').find('.lay_01').eq(ind).removeClass('disn').addClass('shay');
+
+					
+
+				});
+
+				/*点击基本信息展示*/
+
+					var shala=true;
+
+					$('.bainfo').click(function(e){
+
+						if(shala){
+
+							$('.hidlay').removeClass('disn').addClass('shay');	
+
+							$(this).find('span').addClass('curr');
+
+							shala=false;	
+
+						}
+
+						else{
+
+							$('.hidlay').removeClass('shay').addClass('disn');	
+
+							$(this).find('span').removeClass('curr');
+
+							shala=true;	
+
+						}
+
+						e.stopPropagation();
+
+						
+
+					});
+
+					//基本信息隐藏选项卡点击
+
+					var boci=true;
+
+					$('.hidlay a').click(function(){
+
+						var na_fva=$(this).attr('title');
+
+						var pa_fva=$('.indis h2[title='+na_fva+']').offset().top-90;			//基本信息么有固定定位
+
+						var psi_fva=$('.indis h2[title='+na_fva+']').offset().top-50;			//基本信息固定定位之后
+
+						$('.hidlay').find('a').removeClass('curr');
+
+						$(this).addClass('curr');
+
+						
+
+						$('.bainfo >a').html($(this).html());
+
+						
+
+						if($('.bainfo').hasClass('hefixed')){
+
+							$('body,html').animate({scrollTop:psi_fva},1);
+
+						}
+
+						else{
+
+							$('body,html').animate({scrollTop:pa_fva},1);		
+
+						}
+
+					});
+
+					/*控制项目详情页滑动*/
+
+					document.addEventListener('touchmove', function(event) {
+
+						 // 如果这个元素的位置内只有一个手指的话
+
+							$('.hidlay').removeClass('shay').addClass('disn');	
+
+							$('.bainfo').find('span').removeClass('curr');
+
+							shala=true;	
+
+					}); 
+
+					   //点击收藏
+
+					  $('.aproj >li mark,.recme li >mark').click(function(){
+
+							var val=$(this).attr('data_c');
+
+							if(val=='1'){
+
+								$(this).attr('data_c',0);
+
+								$(this).removeClass('curr');
+
+								if($(this).parents().is('.recme')){
+
+									$(this).html('未收藏');	
+
+								}	
+
+							}	
+
+							else{
+
+								$(this).addClass('curr')
+
+								$(this).attr('data_c',1);
+
+								if($(this).parents().is('.recme')){
+
+									$(this).html('已收藏');	
+
+								}
+
+							}
+
+						}); 
+
+					  //设置查看更多浮层
+					 $('.discov').height(screen.height); 
+
+					  $('.fiall').click(function(){
+
+						 $('.discov').removeClass('disn').addClass('shay'); 
+
+						 $('body').css('overflow','hidden'); 
+						  
+						  binggou.showFulltext($('.verim:eq(1)').html());
+
+					  });
+
+					  $('a.closewi').click(function(){
+
+						$('.discov').removeClass('shay').addClass('disn');
+
+						$('body').css('overflow','visible'); 	  
+
+					  });
+
+					  //项目详情的高度
+
+					  if($('.shopag').find('p.mart').height()>=160){
+
+							$('a.fiall').removeClass('disn').addClass('shay'); 
+
+						};
+
+	});
+
+	$.getScript(systemPicUrl + "/static_html/mobile/js/jquery-1.11.2.min.js");
+
+	$.getScript(systemPicUrl + "/static_html/mobile/js/jquery.event.drag-1.5.min.js");
+
+	$.getScript(systemPicUrl + "/static_html/mobile/js/jquery.touchSlider.js");
+
+	$.getScript(systemPicUrl + "/static_html/mobile/js/slide.js");
+
+	
+
+	
+
+});
+
+</script>
+
+
+
+</body>
+
+</html>
+

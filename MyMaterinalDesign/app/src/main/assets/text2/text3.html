@@ -1,0 +1,463 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="applicable-device" content="mobile">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" href="images/logo114.png" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<!--项目详情-->
+<script type="text/javascript" src="js/jquery.event.drag-1.5.min.js"></script>
+<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+<script type="text/javascript" src="js/slide.js"></script>
+<!--详情页滑动-->
+<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>       
+<script type="text/javascript" src="js/flickity-docs.min.js"></script>   
+
+<!--抽离公共页样式-->
+<style type="text/css">
+*{ margin:0; padding:0;} 
+html{ font-size:310%;}
+/*@media screen and (min-width: 414px) {html{ font-size:330%;}}*/
+body{-webkit-text-size-adjust:100%;font-family:"Microsoft YaHei",Arial,Helvetica,sans-serif; color:#333; font-size:.3rem;}
+article， aside， details， figcaption， figure， footer， header， hgroup， menu， nav， section { display: block; }
+a{ text-decoration: none; display:block; color:#333;-webkit-tap-highlight-color:transparent;}
+h2,h3,h4{ font-weight:normal;}
+img,input{ border:none;}
+img{ display:block;}
+ul{ list-style:none;}
+.fl{ float:left;}
+.fr{ float:right;}
+.clear{ clear:both;}
+.boback{ background:#fafafa;overflow-x:hidden;}
+.disn{ display:none;}
+.shay{ display:block;}
+.bainfo{ position:relative;}
+.bainfo a{ display:block; color:#fff;}
+.bainfo span{ display:block; position:absolute; right:4%; top:.35rem;border-color:#fff transparent transparent transparent; border-width:6px; border-style:solid; width:0; height:0; line-height:0;}
+.bainfo span.curr{border-color:transparent transparent #fff transparent;top:.25rem;}
+.indis h1{ font-size:.4rem; font-weight:normal; margin:.35rem 0 .25rem 0; line-height:28px;}
+.indis{ font-size:.28rem; line-height:22px;}
+.indis table{ width:100%;border-collapse:collapse}
+.tablay{ margin-top:.35rem;}
+.tablay td{ padding:.23rem 0 .23rem .76rem;}
+.tablay tr:first-child td:first-child{ border-right:1px solid #fff; border-bottom:1px solid #fff;}
+.tablay tr:last-child td:last-child{ border-left:1px solid #fff; border-top:1px solid #fff;}
+.tablay tr td.ye_01{ background:#f1f1f2 url(images/ye_01.png) no-repeat .2rem center; background-size:.4rem .38rem;}
+.tablay tr td.ye_02{ background:#f1f1f2 url(images/ye_02.png) no-repeat .2rem center; background-size:.38rem .38rem;}
+.tablay tr td.ye_03{ background:#f1f1f2 url(images/ye_03.png) no-repeat .2rem center; background-size:.4rem .38rem;}
+.tablay tr td.ye_04{ background:#f1f1f2 url(images/ye_04.png) no-repeat .2rem center; background-size:.33rem .42rem;}
+.indis h2{ font-size:.34rem; margin:.25rem 0 .3rem 0; position:relative; padding-left:.2rem;}
+.indis h2:after{ content:""; position:absolute; left:0; top:.075rem; background:#569ffd; width:3px; height:.3rem;}
+.thre{ background:#f4f4f4; height:.2rem;}
+.report{ margin:.2rem 0 .1rem 0; overflow:hidden;}
+.report a{ float:left; height:.58rem; line-height:.58rem; text-align:center; text-align:center; background:#e9e9ea; width:48%; margin-right:4%;}
+.report a.curr{ background:#60a4fd; color:#fff;}
+.report a:last-child{ margin-right:0;}
+.purcha{ margin-bottom:.35rem;}
+.purcha td,.purcha th{ height:.6rem; line-height:.6rem;}
+.purcha td{ text-align:center; border:1px solid #ddd;}
+.purcha th{ font-weight:normal;}
+.indis .gray{ color:#aaa;}
+.purcha tr th:first-child{ text-align:left;}
+.purcha tr th:last-child{ text-align:right;}
+.indis p.iscon span:first-child,.enro >p label,.enro >p input,.choice >a,.choice p,.account span,.bset a{ float:left;}
+.indis p.iscon span:last-child,.account a{ float:right;}
+.indis p.tips{ margin:.1rem 0;}
+.shopag p{ line-height:24px;}
+.shopag p.mart{margin:.15rem 0 .2rem 0;overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;}
+.shopag{ padding-bottom:.2rem;}
+.shopag div{ text-align:center; color:#4f9bfd;}
+.sourc img{ width:100%;}
+.sourc p{ font-size:.24rem; color:#aaa; padding:.25rem 0;}
+/*项目详情页——项目图片*/
+.main_visual{ position:relative; margin-bottom:.39rem;}
+.main_image{height:3.5rem;overflow:hidden;position:relative;}
+.main_image ul{width:100%;height:3.5rem;overflow:hidden;position:absolute;top:0;left:0}
+.main_image li{float:left;width:100%;height:3.5rem;}
+.main_image li span{display:block;width:100%;height:3.5rem}
+.main_image li img{ width:100%;height:3.5rem;}
+.main_image li a{display:block;width:100%;height:3.5rem;}
+.main_wor li a{ position:relative;}
+.main_wor li a p{ position:absolute; height:.45rem; line-height:.45rem; background:rgba(0,0,0,.5); color:#fff; width:95%; padding:0 2.5%; font-size:.3rem; left:0; bottom:0; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;}
+div.flicking_con{position:absolute;bottom:.14rem;left:50%;z-index:99;width:48px;height:8px; text-align:center; overflow:hidden; margin-left:-24px;}
+div.flicking_con a{float:left; background:#aaa;text-indent:-1000px; width:8px; height:8px; border-radius:100%; margin:0 4px;}
+div.flicking_con a.on{ background:#60a4fd;}
+h2.tit{ font-size:.34rem; margin:.3rem auto; width:92%; position:relative;}
+h2.tit:after{ content:""; position:absolute; left:1.5rem; top:.23rem; border-color:transparent #4f9bfd #4f9bfd transparent; border-width:4px; border-style:solid; width:0; height:0; line-height:0;}
+.aproj{ width:96%; margin-left:4%; overflow:hidden;}
+.aproj >li,.aproj li img{ display:block; width:100%;}
+.aproj >li{ border:1px solid #ddd; border-radius:4px; overflow:hidden; margin-bottom:.3rem; background:#fff; position:relative; box-sizing:border-box;}
+.aproj li img{ height:4rem; border-top-left-radius:4px; border-top-right-radius:4px; margin-left:-1px; margin-top:-1px; width:100.6%;}
+.aproj >li mark,.js-flickity li mark{ position:absolute; right:.19rem; top:.19rem; background:#000 url(images/sta_01.png) no-repeat center center; opacity:.5; background-size:.34rem .3rem; display:block; width:.72rem; height:.72rem; border:1px solid #d2ced8; border-radius:100%; box-sizing:border-box; z-index:100; -webkit-tap-highlight-color:transparent;}
+.aproj >li mark.curr,.js-flickity li mark.curr{ background:#eb4f38 url(images/sta_01.png) no-repeat center center;border:1px solid #eb4f38; background-size:.34rem .3rem; opacity:1; transition:all ease-in .1s;}
+.aproj >li:last-child{ margin-bottom:0;}
+.hotpic,footer,.walks,.scan,.indis,.reroll{ width:92%; margin:0 auto;}
+footer{ text-align:center; border-top:1px solid #eee; margin:.8rem auto .5rem auto;}
+footer img{ width:2.15rem; height:.5rem; margin:.3rem auto .15rem auto;}
+footer p{color:#777; font-size:.2rem;}
+.flickity-page-dots,.flickity-prev-next-button{ display:none;}
+.gallery-cell {
+	background:#fff;
+  width: 74.5%;
+  margin-right:2%;
+  height: 7.25rem;
+  border-radius:4px;
+  counter-increment: gallery-cell;
+  border:1px solid #ddd;
+  font-size:.26rem; 
+}
+.js-flickity li{ position:relative; margin:0 4% 0 0;}
+.js-flickity li img{ height:3.2rem;}
+.js-flickity li h3{ font-size:.3rem; line-height:22px; margin:.18rem 0 .1rem 0;}
+.js-flickity li p{ line-height:20px;}
+.js-flickity li mark{ width:.72rem; height:.72rem;}
+.flickity-enabled.is-draggable{-webkit-tap-highlight-color:transparent;}
+.flickity-viewport { overflow: hidden; position: relative;}
+.flickity-enabled.is-draggable .flickity-viewport { cursor: move; cursor: -webkit-grab; cursor: grab;}
+.heash{ height:1rem; border-bottom:1px solid #ddd; overflow:hidden; background:#fff; box-sizing:border-box;}
+.heash a{ float:left; border-right:1px solid #ddd; height:1rem; width:30%; background:url(images/logo_b.png) no-repeat center center; background-size:1.77rem .34rem; box-sizing:border-box;}
+.heash form{ float:left; width:70%;}
+.heash form input{ display:block; width:96%; height:1rem; line-height:1.02rem;font-family:"microsoft Yahei"; font-size:.3rem; color:#aaa; margin-left:5%; text-indent:.45rem; background:url(images/sert_02.png) no-repeat left center; background-size:.3rem .3rem;}
+h3.hipro,.bainfo a{ color:#fff; height:.84rem; line-height:.86rem;background:#60a4fd; text-indent:4%; font-size:.3rem;}
+.bainfo{ position:relative;}
+.bainfo a{ display:block; color:#fff;}
+.bainfo span{ display:block; position:absolute; right:4%; top:.35rem;border-color:#fff transparent transparent transparent; border-width:6px; border-style:solid; width:0; height:0; line-height:0;}
+.bainfo span.curr{border-color:transparent transparent #fff transparent;top:.25rem;}
+.hidlay{ position:absolute; left:0; top:.84rem; width:100%;}
+.hidlay a{ display:block; background:#4f9bfd; height:.84rem; line-height:.86rem; text-indent:4%; color:#acc6ee;}
+.hidlay a.curr{ background:#4689df;}
+.hefixed{ position:fixed; left:0; top:0; width:100%; z-index:1000;}
+.new_sou{ padding-bottom:.5rem;}
+.verim{ padding-bottom:.2rem;}
+.proctye{ width:92%; margin:0 auto;}
+.proctye h4{ font-size:.34rem; font-weight:bold; margin:.4rem 0;}
+.proctye p{ line-height:24px; margin-bottom:.3rem;}
+.proctye h6{ font-size:.3rem; margin-bottom:.3rem;}
+input:focus,.flickity-enabled.is-draggable:focus{ outline:0;}
+.indis h2.noinf:after{ background:none; width:0; height:0;}
+.souin input.txts{ padding:.1rem 0 .1rem .7rem; box-sizing:border-box;}
+p.nonsta{ font-size:.26rem; color:#aaa; text-align:center; margin-top:.2rem;}
+.speai{ margin-bottom:.3rem;}
+.speai tr td{ height:.54rem; text-align:right;}
+.speai tr td:first-child{ color:#aaa; text-align:left;}
+.speai tr td:last-child{ text-align:right;}
+.sourc{ position:relative;}
+.foona{ position:fixed; left:0; bottom:0; width:92%; background:#fff; border-top:1px solid #e3e3e3; padding:.15rem 4%; z-index:100;}
+.foona a.agree{ border:1px solid #aaa; width:13%; background:url(images/agg_01.png) no-repeat center center; background-size:.42rem .38rem; transition:all ease-in .2s;}
+.foona a.curr{ border:1px solid #eb4f38; background:#eb4f38 url(images/agg_02.png) no-repeat center center; background-size:.42rem .38rem;}
+.teask{ position:absolute; left:-4%; bottom:0; width:100%; opacity:0; height:0;}
+.foona a{ float:left; height:.7rem; line-height:.7rem; box-sizing:border-box; text-align:center; border-radius:4px;}
+.foona a.telin{ width:84%; background:#4f9bfd; color:#fff; margin-right:3%;}
+.anDro a.telin,.anDro a.prime{ width:42%; border-radius:0;}
+.anDro a.prime{ background:#bcbec1; color:#fff;}
+.teslide{ opacity:1; height:auto;}
+.outma{ width:94%; margin:0 auto;}
+.outma h3{ font-size:.36rem; margin:.2rem 0 .12rem 0; line-height:24px;}
+.outma >p{color:#aaa; line-height:22px;}
+.healt{ border-top:1px solid #eee; margin-top:.22rem; padding-top:.16rem; overflow:hidden;}
+.healt li{ list-style-type:none; padding-left:.5rem;line-height:24px;}
+.healt li:first-child{ background:url(images/med_01.png) no-repeat left center; background-size:.34rem .31rem;}
+.healt li:last-child{ background:url(images/med_02.png) no-repeat left center; background-size:.34rem .31rem;}
+.marks{ overflow:hidden; margin:.18rem 0 .25rem 0;}
+.marks span{ float:left;}
+.marks b{ font-weight:normal; color:#aaa;}
+.marks b,.marks em{ float:right;}
+.marks span{ background:url(images/progr.gif) repeat-x; height:.22rem; width:72%; border-radius:10px; margin-top:.09rem;}
+.marks span em{ width:60%;height:.22rem; border-radius:10px;}
+header,.suneed{ height:.9rem; line-height:.9rem; position:relative;}
+header{background:#f0f0f0; margin-bottom:.5rem; font-size:.34rem; text-indent:4%;}
+header a{ position:absolute; right:0; top:0; height:.9rem; width:.9rem; background:url(images/close.png) no-repeat center center; background-size:.3rem .3rem;}
+@media screen and (width: 360px) {
+    .choice >a{ margin:.013rem .15rem 0 0;}.spew a{line-height:.6rem;}.indis h2:after{ top:0.05rem;}h2.tit:after{ top:.17rem;}.message a{ line-height:.52rem;}.message{ line-height:.94rem;}.enro input[type="submit"]{ line-height:.82rem;}.enro >p input{ line-height:.64rem;}.sptel{padding:.24rem 0 .2rem 0;}.enro >p.gain a, .enro >p.npas a{ top:.14rem;} .marks span{margin-top:.05rem;}.report a{ line-height:.62rem;}
+}
+@media screen and (width: 320px) {
+	.sptel p{ font-size:.4rem;}.recme li div{ width:82%;}.recme li >mark{ width:16%;}
+}
+/*点击查看全文*/
+.discov{ position:fixed; left:0; top:0; width:100%; background:#fafafa; z-index:4000; overflow:hidden; overflow-y:scroll;}
+</style>
+<!--抽离公共页样式-->
+  
+</head>
+<body class="boback">
+
+<!--抽离公共页-->
+<section class="public_page">
+    <div class="bainfo"><a>基本信息</a><span></span>
+        <article class="hidlay disn"><a href="javascript:void(0)" class="curr" title="1">基本信息</a><a href="javascript:void(0)" title="2">财务数据</a><a href="javascript:void(0)" title="3">股权结构</a><a href="javascript:void(0)" title="4">信息披露</a><a href="javascript:void(0)"  title="5">项目图片</a><a  href="javascript:void(0)" title="6">交易流程</a></article>
+    
+    </div>
+    <article class="indis">
+        <h2 title="1" class="noinf"></h2>
+        <h1>某国内大型的锐钛型钛白粉生产企业100%股权转让</h1>
+        <p class="year">2013年8月，麓谷实业已通过ISO9001质量管理体系、ISO14001环境管理体系、OHSAI18000职业健康安全管理体系认证，公司整体运营管理进入了一个新的阶段。</p>   
+        <table class="tablay"><tr><td class="ye_01">投资与资产管理<br/>行业</td><td class="ye_02">20448万元</td></tr><tr id="inf_01"><td class="ye_03">2016-11-14 至<br/>2016-12-09</td><td class="ye_04">广东省 - 中山市</td></tr></table>
+        
+        <h2>基本信息</h2>
+        <table class="speai">
+            <tr><td>标的企业名称：</td><td>中山金融投资控股有限公司</td></tr>
+            <tr><td>转让方名称：</td><td>中国冶金科工股份有限公司</td></tr>
+            <tr><td>成立时间：</td><td>2015.08.10</td></tr>
+            <tr><td>注册地：</td><td>广东省中山市中山五路2号紫马奔腾6座十一楼</td></tr>
+            <tr><td>注册资本：</td><td>200000万元（人民币）</td></tr>
+            <tr><td>职工人数：</td><td>20人</td></tr>
+            <tr><td>国拨土地：</td><td>1000公顷</td></tr>
+        </table>
+    </article>
+    <div class="thre"></div>
+    <article class="indis">
+        <h2 title="2">财务数据(单位：万元)</h2>
+        <div class="report"><a class="curr">审计报告</a><a>财务报告</a></div>
+        <p></p>
+        <div class="shinf">
+            <div class="lay_01">
+                <table class="speai">
+                    <tr><td>年度：</td><td>20152</td><td>2015</td></tr>
+                    <tr><td>营业收入：</td><td>2015444</td><td>0</td></tr>
+                    <tr><td>营业利润：</td><td>2015</td><td>434.1</td></tr>
+                    <tr><td>净利润：</td><td>2015</td><td>321.36</td></tr>
+                    <tr><td>资产总计：</td><td>2015</td><td>250887.96</td></tr>
+                    <tr><td>负债总计：</td><td>2015</td><td>150566.6</td></tr>
+                    <tr><td>所有者权益：</td><td>20中山所有限公司15</td><td>100321.36</td></tr>
+                    <tr><td>审计机构：</td><td>中山所有限公司</td><td>中山所有限公司</td></tr>
+                </table>
+            </div>
+            <div class="lay_01 disn">
+            <table class="speai">
+                <tr><td>年度：</td><td>2015</td></tr>
+                <tr><td>营业收入：</td><td>0</td></tr>
+                <tr><td>营业利润：</td><td>434.1</td></tr>
+                <tr><td>净利润：</td><td>321.36</td></tr>
+                <tr><td>资产总计：</td><td>250887.96</td></tr>
+                <tr><td>负债总计：</td><td>150566.6</td></tr>
+                <tr><td>所有者权益：</td><td>100321.36</td></tr>
+                <tr><td>审计机构：</td><td>中山市成诺会计事务所有限公司</td></tr>
+            </table>
+            </div>
+            
+        </div>
+    </article>
+    <div class="thre"></div>
+    <article class="indis">
+        <h2 title="3">股权结构</h2>
+         <table class="purcha">
+            <tr><th class="gray">原股东是否放弃行使优先购买权</th><th>是</th></tr>
+            <tr><td class="gray">股东名称</td><td class="gray">持股比例</td></tr>
+            <tr><td>中山市人民政府国有资产监督管理会</td><td>75%</td></tr>
+            <tr><td>中国冶金科工有限公司</td><td>25%</td></tr>
+            <tr><td>华帝股份有限公司</td><td>5%</td></tr>
+        </table>
+    </article>
+    <div class="thre"></div>
+    <article class="indis shopag">    
+        <h2 title="4">信息披露</h2>
+        <p class="iscon" style="overflow:hidden;"><span class="gray">管理层是否参与受让：</span><span>否</span></p>
+       
+        <p class="mart">1、根据标的企业章程约定，标的企业各股东应于2016年3月15日前缴足注册资本。目前股东中山市人民政府国有资产监督管理委员会尚有7.5亿元未缴足；转让方中国冶金科工股份有限公司尚有2亿元未缴足；股东华帝股份有限公司尚有0.5亿元未缴足；受让方受让成功后须代转让方履行缴纳上述注册资本的义务。</p>
+        <p class="mart">2、其他详见《审计报告》、《法律意见书》等相关备查文件。</p>
+        <p class="gray tips">其他披露内容：</p>
+         <p class="mart">（一）2017“上海超级杯”短道速滑及花样滑冰队列滑大奖赛简介：</p>
+          <p class="mart">“上海超级杯”是一项全新的、首次以城市名字命名的冰上赛事，创办于2016年3月。国际滑联首次将冬季奥运会项目与非奥项目安排在同一时段、同一场地进行，设立短道速滑与花样滑冰队列滑联合赛。短道速滑邀请当年世界排名前24的男女顶尖选手，首次为短道速滑选手设立奖金。队列滑邀请世锦赛排名前五的队伍与中国青年队。</p>
+        
+        <div class="fiall disn" style="text-align:center; color:#">查看全文</div>
+    </article>
+    <div class="thre"></div>
+    <article class="indis">
+        <h2 title="5">项目图片</h2>
+        <div class="main_visual">
+        <div class="flicking_con">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+        </div> 
+        <div class="main_image main_wor">
+            <ul>
+                <li><a href=""><span class="img_3"><img src="images/pers.jpg"></span><p></p></a></li>
+                <li><a href=""><span class="img_4"><img src="images/sen_02.jpg"></span><p></p></a></li>
+                <li><a href=""><span class="img_1"><img src="images/sen_03.jpg"></span><p></p></a></li>
+            </ul>
+            <a href="javascript:void(0);" id="btn_prev"></a>
+            <a href="javascript:void(0);" id="btn_next"></a>
+        </div>
+       
+    </div> 
+    </article>
+    <div class="thre"></div>
+    <article class="indis sourc">    
+         <h2 title="6">交易流程</h2>
+         <img src="images/march.jpg" alt="">
+        <p>数据来源：北京产权交易所</p>
+    </article>
+    
+    
+    <!--查看全文弹层-->
+    <section class="discov disn">
+    	<header>信息披露：<a class="closewi"></a></header>
+            <article class="indis shopag verim">    
+            <section class="discov disn">
+    	<header>信息披露：<a class="closewi"></a></header>
+            <article class="indis shopag verim">    
+            <p class="iscon" style="overflow:hidden;"><span class="gray">管理层是否参与受让：</span><span>否</span></p>
+       
+        <p class="mart">1、根据标的企业章程约定，标的企业各股东应于2016年3月15日前缴足注册资本。目前股东中山市人民政府国有资产监督管理委员会尚有7.5亿元未缴足；转让方中国冶金科工股份有限公司尚有2亿元未缴足；股东华帝股份有限公司尚有0.5亿元未缴足；受让方受让成功后须代转让方履行缴纳上述注册资本的义务。</p>
+        <p class="mart">2、其他详见《审计报告》、《法律意见书》等相关备查文件。</p>
+        <p class="gray tips">其他披露内容：</p>
+         <p class="mart">（一）2017“上海超级杯”短道速滑及花样滑冰队列滑大奖赛简介：</p>
+          <p class="mart">“上海超级杯”是一项全新的、首次以城市名字命名的冰上赛事，创办于2016年3月。国际滑联首次将冬季奥运会项目与非奥项目安排在同一时段、同一场地进行，设立短道速滑与花样滑冰队列滑联合赛。短道速滑邀请当年世界排名前24的男女顶尖选手，首次为短道速滑选手设立奖金。队列滑邀请世锦赛排名前五的队伍与中国青年队。</p>
+         <p class="mart">（一）2017“上海超级杯”短道速滑及花样滑冰队列滑大奖赛简介：</p>
+          <p class="mart">“上海超级杯”是一项全新的、首次以城市名字命名的冰上赛事，创办于2016年3月。国际滑联首次将冬季奥运会项目与非奥项目安排在同一时段、同一场地进行，设立短道速滑与花样滑冰队列滑联合赛。短道速滑邀请当年世界排名前24的男女顶尖选手，首次为短道速滑选手设立奖金。队列滑邀请世锦赛排名前五的队伍与中国青年队。</p>
+          
+          
+            </article>
+    </section>
+            </article>
+    
+    </section>
+    
+
+
+    <script type="text/javascript">
+    	$(function(){
+				//点赞之后
+				
+				var bo=true;
+				$('.foona a.agree').click(function(){
+					if(bo){
+						$('.foona a.agree').addClass('curr');	
+						bo=false;
+					}
+					else{
+						$('.foona a.agree').removeClass('curr');	
+						bo=true;
+					}
+				});
+				//项目详情——财务详情
+				$('.report a').click(function(){
+					var ind=$(this).index();
+					
+					$('.shinf').find('table').css('width','100%');
+					$('.report a').removeClass('curr');
+					$('.report').find('a').eq(ind).addClass('curr');
+					$('.shinf .lay_01').removeClass('shay').addClass('disn');
+					$('.shinf').find('.lay_01').eq(ind).removeClass('disn').addClass('shay');
+					
+				});
+				/*点击基本信息展示*/
+					var shala=true;
+					$('.bainfo').click(function(e){
+						if(shala){
+							$('.hidlay').removeClass('disn').addClass('shay');	
+							$(this).find('span').addClass('curr');
+							shala=false;	
+						}
+						else{
+							$('.hidlay').removeClass('shay').addClass('disn');	
+							$(this).find('span').removeClass('curr');
+							shala=true;	
+						}
+						e.stopPropagation();
+						
+					});
+					//基本信息隐藏选项卡点击
+					var boci=true;
+					$('.hidlay a').click(function(){
+						var na_fva=$(this).attr('title');
+						var pa_fva=$('.indis h2[title='+na_fva+']').offset().top-90;			//基本信息么有固定定位
+						var psi_fva=$('.indis h2[title='+na_fva+']').offset().top-50;			//基本信息固定定位之后
+						$('.hidlay').find('a').removeClass('curr');
+						$(this).addClass('curr');
+						
+						$('.bainfo >a').html($(this).html());
+						
+						if($('.bainfo').hasClass('hefixed')){
+							$('body,html').animate({scrollTop:psi_fva},1);
+						}
+						else{
+							$('body,html').animate({scrollTop:pa_fva},1);		
+						}
+					});
+					 $(document).bind('click', function(e) {  
+						   $('.hidlay').removeClass('shay').addClass('disn');	
+							shala=true;	  
+					   });  
+					   //点击收藏
+					  $('.aproj >li mark,.recme li >mark').click(function(){
+							var val=$(this).attr('data_c');
+							if(val=='1'){
+								$(this).attr('data_c',0);
+								$(this).removeClass('curr');
+								if($(this).parents().is('.recme')){
+									$(this).html('未收藏');	
+								}	
+							}	
+							else{
+								$(this).addClass('curr')
+								$(this).attr('data_c',1);
+								if($(this).parents().is('.recme')){
+									$(this).html('已收藏');	
+								}
+							}
+						}); 
+					  //设置查看更多浮层
+					  $('.discov').height($(window).height()); 
+					 
+					  $('.fiall').click(function(){
+						  alert('111');
+						 $('.discov').removeClass('disn').addClass('shay'); 
+						 $('body').css('overflow','hidden');
+						 
+						 
+						 binggou.showFulltext($('.verim:eq(1)').html()); 
+					  });
+					  $('a.closewi').click(function(){
+						$('.discov').removeClass('shay').addClass('disn');
+						$('body').css('overflow','visible'); 	  
+					  });
+					  //项目详情的高度
+					  if($('.shopag').height()>160){
+							$('.fiall').removeClass('disn').addClass('shay'); 
+					};
+					
+					 var ua = navigator.userAgent.toLowerCase();	
+					if (/iphone|ipad|ipod/.test(ua)) {
+							$('.bainfo').remove();		
+					} else if (/android/.test(ua)) {
+							$('.bainfo').remove();
+					}  
+			});
+			
+		$(window).scroll(function(){
+			if($(window).scrollTop()>45){
+				$('.bainfo').addClass('hefixed');
+			}	
+			else{
+				$('.bainfo').removeClass('hefixed');	
+			}
+			for(var i=1;i<=6;i++){
+				var one_v=$('.indis h2[title='+i+']').offset().top-$(window).scrollTop();	//判断元素到顶部的距离
+				var new_v=$('.hidlay').find('a[title='+i+']');
+				
+				if(one_v<80){
+					$('.hidlay').find('a').removeClass('curr');
+					new_v.addClass('curr');
+					$('.bainfo >a').html(new_v.html());	
+				}
+			}
+		});
+    </script>
+    
+</section>
+<!--抽离公共结束-->
+
+
+</body>
+</html>
